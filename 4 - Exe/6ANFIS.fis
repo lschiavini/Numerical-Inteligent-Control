@@ -1,0 +1,37 @@
+[System]
+Name='6ANFIS'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=2
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='in1'
+Range=[-3.14159265358979 2.0943951023932]
+NumMFs=2
+MF1='in1cluster1':'gaussmf',[1.92863409717728 -1.23439315062285]
+MF2='in1cluster2':'gaussmf',[2.25016711705877 1.56175766492659]
+
+[Input2]
+Name='in2'
+Range=[-5.11034411235509 3.14159265358979]
+NumMFs=2
+MF1='in2cluster1':'gaussmf',[3.03888319803935 -2.59508555797504]
+MF2='in2cluster2':'gaussmf',[1.85586120142597 2.80823968726443]
+
+[Output1]
+Name='out1'
+Range=[-307.8760800518 185.003811873656]
+NumMFs=2
+MF1='out1cluster1':'linear',[25.0948709859646 -83.3804795035396 -182.708934143145]
+MF2='out1cluster2':'linear',[10.4306391592475 -124.082895598935 337.538386808237]
+
+[Rules]
+1 1, 1 (1) : 1
+2 2, 2 (1) : 1
