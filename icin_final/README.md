@@ -1,4 +1,4 @@
-# Self Driving Car AI
+# Self Driving Car AI - Final Project
 
 This is a project of Artificial Intelligence Self Driving Car with 2D simulation.
 
