@@ -1,6 +1,6 @@
 # Self Driving Car AI - Final Project
 
-This is a project of Artificial Intelligence Self Driving Car with 2D simulation.
+This is a project of Artificial Intelligence Self Driving Car with 2D simulation with some improvements from this repo:https://github.com/walkccc/SelfDrivingCarAI.
 
 ## Getting Started
 
@@ -154,7 +154,47 @@ We can modify the goals:
             q_values = self.fc4(l3)
             return q_values
     ```
+ 8. Changing the network to have 2 hidden layers and with different number of neurons previously used:
+     ```python
+     
+        def __init__(self, input_size, nb_action):
+            super(Network, self).__init__()
+            self.input_size = input_size
+            self.nb_action = nb_action
+            self.fc1 = nn.Linear(input_size, 15)
+            self.fc2 = nn.Linear(15, 25)
+            self.fc3 = nn.Linear(25, 12)
+            #mais uma camada de 20 pra 15
+            #self.fc4 = nn.Linear(15, 10)
+            self.fc4 = nn.Linear(12, nb_action)
+            
+        def forward(self, state):
+            l1 = F.relu(self.fc1(state))
+            l2 = F.relu(self.fc2(l1))
+            l3 = F.sigmoid(self.fc3(l2))
+            q_values = self.fc4(l3)
+            return q_values
+   
+  
+  9. Changed the Reward system to better values
+   ```python
+        last_reward = 0
 
+        if sand[int(self.car.x), int(self.car.y)] > 0:
+            self.car.velocity = Vector(1, 0).rotate(self.car.angle)
+            last_reward = -8
+        else:
+            self.car.velocity = Vector(6, 0).rotate(self.car.angle)
+            last_reward = -0.2
+            if distance < last_distance:
+                last_reward += 0.273           # last_reward = 0.1
+
+        if action != 0:
+            last_reward += -0.15
+            
+            
+        ...
+        
 ## Screenshots
 
 ![](./screenshot.png)
