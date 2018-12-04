@@ -176,7 +176,7 @@ We can modify the goals:
             return q_values
    
   
-  9. Changed the Reward system to better values
+  9. Changed the Reward system to better values:
        ```python
             last_reward = 0
 
@@ -198,3 +198,6 @@ We can modify the goals:
 ## Screenshots
 
 ![](./screenshot.png)
+![](./recompensa.png)
+
+
