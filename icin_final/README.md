@@ -177,23 +177,23 @@ We can modify the goals:
    
   
   9. Changed the Reward system to better values
-   ```python
-        last_reward = 0
+       ```python
+            last_reward = 0
 
-        if sand[int(self.car.x), int(self.car.y)] > 0:
-            self.car.velocity = Vector(1, 0).rotate(self.car.angle)
-            last_reward = -8
-        else:
-            self.car.velocity = Vector(6, 0).rotate(self.car.angle)
-            last_reward = -0.2
-            if distance < last_distance:
-                last_reward += 0.273           # last_reward = 0.1
+            if sand[int(self.car.x), int(self.car.y)] > 0:
+                self.car.velocity = Vector(1, 0).rotate(self.car.angle)
+                last_reward = -8
+            else:
+                self.car.velocity = Vector(6, 0).rotate(self.car.angle)
+                last_reward = -0.2
+                if distance < last_distance:
+                    last_reward += 0.273           # last_reward = 0.1
 
-        if action != 0:
-            last_reward += -0.15
-            
-            
-        ...
+            if action != 0:
+                last_reward += -0.15
+
+
+            ...
         
 ## Screenshots
 
